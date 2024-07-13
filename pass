@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Full Screen Page with Timeout Error</title>
+  <style>
+    /* Make the page black */
+    body {
+      background-color: #000;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Button to request full screen -->
+  <button id="full-screen-btn">Enter Full Screen</button>
+
+  <!-- Error message container -->
+  <div id="error-msg" style="display: none;">
+    <h1>Timeout Error</h1>
+    <p>The page timed out. Please try again.</p>
+  </div>
+
+  <script>
+    // Get the full screen button and error message container
+    const fullScreenBtn = document.getElementById('full-screen-btn');
+    const errorMsgContainer = document.getElementById('error-msg');
+
+    // Add event listener to full screen button
+    fullScreenBtn.addEventListener('click', () => {
+      // Request full screen
+      document.body.requestFullscreen();
+
+      // Set a timeout to display the error message after 5 seconds
+      setTimeout(() => {
+        errorMsgContainer.style.display = 'block';
+      }, 5000);
+    });
+  </script>
+</body>
+</html>
